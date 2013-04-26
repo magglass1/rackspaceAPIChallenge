@@ -63,7 +63,7 @@ def main():
     print "Password:", server.adminPass
     print
     print "Waiting for server to become ACTIVE..."
-    pyrax.utils.wait_until(server, "status", ['ACTIVE','BUILD'])
+    pyrax.utils.wait_until(server, "status", ['ACTIVE','ERROR'])
     print "Server status:", server.status
     print "Deleting image..."
     cs.images.delete(img_id)
