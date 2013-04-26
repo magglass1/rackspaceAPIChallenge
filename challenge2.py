@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # API Challenge 2
 #
 #Copyright 2013 Mark Lessel
@@ -49,6 +50,7 @@ def main():
     
     pyrax.utils.wait_until(image, "status", "ACTIVE")
     
+    server_name = server.name + "_clone"
     print "Building server...\n"
     server = cs.servers.create(server_name, img_id, server.flavor)
 
@@ -60,7 +62,12 @@ def main():
     print "Username: root"
     print "Password:", server.adminPass
     print
-    
+    print "Waiting for server to become ACTIVE..."
+    pyrax.utils.wait_until(server, "status", ['ACTIVE','BUILD'])
+    print "Server status:", server.status
+    print "Deleting image..."
+    cs.images.delete(img_id)
+    print "Done!"
     
 
 if __name__ == '__main__':

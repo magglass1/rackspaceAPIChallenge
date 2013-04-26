@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # API Challenge 1
 #
 #Copyright 2013 Mark Lessel
