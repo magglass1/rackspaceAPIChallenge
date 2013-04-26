@@ -52,7 +52,7 @@ def main():
     
     server_name = server.name + "_clone"
     print "Building server...\n"
-    server = cs.servers.create(server_name, img_id, server.flavor)
+    server = cs.servers.create(server_name, img_id, server.flavor['id'])
 
     wait_for_networking(server)
     print "Name:", server.name
