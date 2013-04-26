@@ -17,6 +17,7 @@
 
 import pyrax
 import os
+import time
 
 def wait_for_networking(server):
     while len(server.networks)==0 and server.status not in ['ACTIVE', 'ERROR']:
